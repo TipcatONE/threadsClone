@@ -1,27 +1,27 @@
 import UIKit
 
 func searchInsert(_ nums: [Int], _ target: Int)->Int{
-    if nums.contains(target) == false{
-        nums.insert(target, at: target)
-        nums.sort()
-        return nums.firstIndex(of: target)!
-        
-        
-        
-    }else{
-        var counter = 0
+    var second_nums = nums
+    var counter = 0
+    if nums.contains(target){
         for i in nums{
             if i != target{
-                break
-                return counter
+                counter+=1
             }
             else{
-                counter+=1
+                break
             }
         }
         
+    }else{
+        second_nums.insert(target, at: target)
+        second_nums.sort()
+        return second_nums.firstIndex(of: target)!
+        
+        
+        
     }
-    return 0
+        return counter
 }
-searchInsert([1,3,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], 18)
+searchInsert([1,3,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], 2)
 
