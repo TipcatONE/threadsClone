@@ -1,27 +1,15 @@
 import UIKit
 
-func searchInsert(_ nums: [Int], _ target: Int)->Int{
-    var second_nums = nums
+func findcompability(name1:String,name2:String)->Int{
     var counter = 0
-    if nums.contains(target){
-        for i in nums{
-            if i != target{
-                counter+=1
-            }
-            else{
-                break
-            }
+    Array(name2).split(separator: "")
+    for letter in name2{
+        if name1.contains(letter){
+            counter+=10
+        }else{
+            continue
         }
-        
-    }else{
-        second_nums.insert(target, at: target)
-        second_nums.sort()
-        return second_nums.firstIndex(of: target)!
-        
-        
-        
     }
-        return counter
+    
 }
-searchInsert([1,3,5,6,7,8,9,10], 2)
-
+findcompability(name1: "Nikita", name2: "jel")
