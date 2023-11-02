@@ -9,11 +9,27 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var YourNameTF: UITextField!
+    @IBOutlet weak var PartnerNameTF: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let s = segue.destination as? ResultViewController else{return}
+        s.FirstName = YourNameTF.text
+        s.SecondName = PartnerNameTF.text
     }
 
 
+    @IBAction func ButtonForResult() {
+        performSegue(withIdentifier: "GoToResult", sender: nil)
+        }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
 
